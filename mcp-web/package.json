@@ -1,0 +1,48 @@
+{
+    "name": "atlas-mcp-web",
+    "version": "0.1.0",
+    "description": "Give your AI agent the ability to extract clean, structured data from any web page. Articles, products, metadata, tables, contact info, tech stack - all through one MCP server. Part of Atlas — infrastructure for AI agents.",
+    "keywords": [
+        "mcp",
+        "model-context-protocol",
+        "claude",
+        "anthropic",
+        "ai-agents",
+        "web-scraping",
+        "data-extraction",
+        "rag",
+        "llm",
+        "atlas"
+    ],
+    "homepage": "https://atlas-agent.dev",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/atlas-agent/atlas"
+    },
+    "license": "MIT",
+    "type": "module",
+    "main": "./dist/index.js",
+    "bin": {
+        "atlas-mcp-web": "./dist/index.js"
+    },
+    "files": ["dist", "README.md"],
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "dev": "tsx src/index.ts",
+        "prepublishOnly": "npm run build"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.0.0",
+        "cheerio": "^1.0.0",
+        "zod": "^3.23.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.0.0",
+        "tsx": "^4.19.0",
+        "typescript": "^5.6.0"
+    }
+}

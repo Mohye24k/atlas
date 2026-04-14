@@ -1,0 +1,47 @@
+{
+    "name": "atlas-mcp-search",
+    "version": "0.1.0",
+    "description": "Unified search across DuckDuckGo, GitHub, npm, PyPI, Stack Overflow, Wikipedia and Hacker News — for AI agents. No API keys required. Part of Atlas — infrastructure for AI agents.",
+    "keywords": [
+        "mcp",
+        "model-context-protocol",
+        "claude",
+        "ai-agents",
+        "search",
+        "web-search",
+        "github-search",
+        "npm-search",
+        "anthropic",
+        "atlas"
+    ],
+    "homepage": "https://atlas-agent.dev/search",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/atlas-agent/atlas"
+    },
+    "license": "MIT",
+    "type": "module",
+    "main": "./dist/index.js",
+    "bin": {
+        "atlas-mcp-search": "./dist/index.js"
+    },
+    "files": ["dist", "README.md"],
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "dev": "tsx src/index.ts",
+        "prepublishOnly": "npm run build"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.0.0",
+        "zod": "^3.23.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.0.0",
+        "tsx": "^4.19.0",
+        "typescript": "^5.6.0"
+    }
+}

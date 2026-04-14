@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    color-scheme: dark;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0a0a0a;
+    background-image:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(88, 80, 236, 0.15), transparent),
+        radial-gradient(ellipse 50% 50% at 80% 50%, rgba(20, 184, 166, 0.08), transparent);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 50%, #5eead4 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

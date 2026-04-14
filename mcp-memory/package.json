@@ -1,0 +1,49 @@
+{
+    "name": "atlas-mcp-memory",
+    "version": "0.1.0",
+    "description": "Persistent memory for AI agents. Claude, Cursor, and Windsurf finally remember who you are, what you're working on, and what matters across every session. Part of Atlas — infrastructure for AI agents.",
+    "keywords": [
+        "mcp",
+        "model-context-protocol",
+        "claude",
+        "ai-agents",
+        "memory",
+        "persistent-memory",
+        "rag",
+        "llm-memory",
+        "anthropic",
+        "cursor",
+        "windsurf",
+        "atlas"
+    ],
+    "homepage": "https://atlas-agent.dev/memory",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/atlas-agent/atlas"
+    },
+    "license": "MIT",
+    "type": "module",
+    "main": "./dist/index.js",
+    "bin": {
+        "atlas-mcp-memory": "./dist/index.js"
+    },
+    "files": ["dist", "README.md"],
+    "scripts": {
+        "build": "tsc",
+        "start": "node --experimental-sqlite dist/index.js",
+        "dev": "tsx src/index.ts",
+        "prepublishOnly": "npm run build"
+    },
+    "engines": {
+        "node": ">=22.5.0"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.0.0",
+        "zod": "^3.23.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.0.0",
+        "tsx": "^4.19.0",
+        "typescript": "^5.6.0"
+    }
+}
