@@ -1,0 +1,21 @@
+{
+    "name": "atlas-monorepo",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Atlas — infrastructure for AI agents. 5 MCP servers, a REST API, and a landing page.",
+    "homepage": "https://atlas-agent.dev",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Mohye24k/atlas"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "node scripts/build-all.mjs",
+        "test:smoke": "node scripts/smoke-test.mjs",
+        "publish:npm": "node scripts/publish-all.mjs",
+        "publish:npm:dry": "node scripts/publish-all.mjs --dry-run",
+        "deploy:vercel": "node scripts/deploy-vercel.mjs",
+        "deploy:vercel:prod": "node scripts/deploy-vercel.mjs --prod"
+    },
+    "workspaces": ["mcp-web", "mcp-memory", "mcp-search", "mcp-actions", "mcp-code", "api", "landing"]
+}
