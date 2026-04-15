@@ -74,18 +74,21 @@ for (const pkg of PACKAGES) {
     }
 }
 
-console.log('\nAll Atlas MCP packages published.');
-console.log('\nInstall them in any MCP client:');
+console.log('\nAll Atlas packages published.');
+console.log('\nUsers can now run a single command to install every server:');
+console.log('');
+console.log('  npx -y create-atlas-mcp');
+console.log('');
+console.log('Or wire them up manually in any MCP client:');
 console.log('');
 console.log('  {');
 console.log('    "mcpServers": {');
-for (const p of PACKAGES) {
-    const name = `atlas-${p.replace('mcp-', 'mcp-')}`;
-    const short = p.replace('mcp-', '');
-    console.log(`      "atlas-${short}": {`);
-    console.log(`        "command": "npx",`);
-    console.log(`        "args": ["-y", "${name.startsWith('atlas-') ? name : 'atlas-' + p}"]`);
-    console.log(`      }${p === PACKAGES[PACKAGES.length - 1] ? '' : ','}`);
-}
+console.log('      "atlas-memory":  { "command": "npx", "args": ["-y", "atlas-mcp-memory"] },');
+console.log('      "atlas-web":     { "command": "npx", "args": ["-y", "atlas-mcp-web"] },');
+console.log('      "atlas-search":  { "command": "npx", "args": ["-y", "atlas-mcp-search"] },');
+console.log('      "atlas-actions": { "command": "npx", "args": ["-y", "atlas-mcp-actions"] },');
+console.log('      "atlas-code":    { "command": "npx", "args": ["-y", "atlas-mcp-code"] },');
+console.log('      "atlas-files":   { "command": "npx", "args": ["-y", "atlas-mcp-files"],');
+console.log('                         "env": { "ATLAS_FILES_ROOTS": "/path/to/root1:/path/to/root2" } }');
 console.log('    }');
 console.log('  }');
