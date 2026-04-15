@@ -291,6 +291,39 @@ test(
     },
 );
 
+test(
+    'atlas-mcp-files: list_roots',
+    'mcp-files',
+    ['node', 'mcp-files/dist/index.js'],
+    { ATLAS_FILES_ROOTS: REPO_PATH },
+    async (client) => {
+        const data = await client.callTool('list_roots', {});
+        return {
+            ok: (data?.roots?.length ?? 0) > 0,
+            summary: `${data?.roots?.length ?? 0} root(s), readOnly=${data?.readOnly}`,
+        };
+    },
+);
+
+test(
+    'atlas-mcp-files: sandbox escape rejected',
+    'mcp-files',
+    ['node', 'mcp-files/dist/index.js'],
+    { ATLAS_FILES_ROOTS: REPO_PATH },
+    async (client) => {
+        try {
+            await client.callTool('read_text_file', { path: '/etc/passwd' });
+            return { ok: false, summary: 'escape NOT blocked' };
+        } catch (err) {
+            const msg = String(err.message || err);
+            return {
+                ok: msg.includes('outside the allowlisted roots'),
+                summary: 'correctly rejected /etc/passwd',
+            };
+        }
+    },
+);
+
 // ── Runner ───────────────────────────────────────────────────────────────────
 
 async function main() {

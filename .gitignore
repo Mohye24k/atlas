@@ -25,3 +25,6 @@ Thumbs.db
 .vercel
 .turbo
 .cache
+
+# Atlas research agent output — regenerated on each run
+reports/

@@ -22,6 +22,8 @@ const PACKAGES = [
     'mcp-search',
     'mcp-actions',
     'mcp-code',
+    'mcp-files',
+    'create-atlas-agent',
     'api',
     'landing',
 ];

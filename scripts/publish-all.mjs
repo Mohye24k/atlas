@@ -21,7 +21,15 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dryRun = process.argv.includes('--dry-run');
 
-const PACKAGES = ['mcp-web', 'mcp-memory', 'mcp-search', 'mcp-actions', 'mcp-code'];
+const PACKAGES = [
+    'mcp-web',
+    'mcp-memory',
+    'mcp-search',
+    'mcp-actions',
+    'mcp-code',
+    'mcp-files',
+    'create-atlas-agent',
+];
 
 console.log(`Atlas publish-all${dryRun ? ' (dry run)' : ''}\n`);
 

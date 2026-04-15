@@ -1,0 +1,56 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+    workflow_dispatch:
+
+jobs:
+    build-and-smoke-test:
+        name: Build + smoke test (${{ matrix.os }} / Node ${{ matrix.node }})
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest, macos-latest, windows-latest]
+                node: ['22.x']
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup Node ${{ matrix.node }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node }}
+
+            - name: Install dependencies (all packages)
+              shell: bash
+              run: |
+                  for pkg in mcp-memory mcp-web mcp-search mcp-actions mcp-code create-atlas-agent api; do
+                    echo "--- Installing $pkg ---"
+                    (cd "$pkg" && npm install --no-audit --no-fund)
+                  done
+
+            - name: Build every package
+              shell: bash
+              run: |
+                  for pkg in mcp-memory mcp-web mcp-search mcp-actions mcp-code create-atlas-agent api; do
+                    echo "--- Building $pkg ---"
+                    (cd "$pkg" && npm run build)
+                  done
+
+            - name: Run smoke test harness
+              env:
+                  ATLAS_MEMORY_DB: ./atlas-smoke.db
+              run: node scripts/smoke-test.mjs
+
+            - name: Upload smoke test artifacts on failure
+              if: failure()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: smoke-test-logs-${{ matrix.os }}
+                  path: |
+                      ./atlas-smoke.db
+                      ./*.log
+                  if-no-files-found: ignore
