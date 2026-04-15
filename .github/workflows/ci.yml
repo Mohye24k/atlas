@@ -27,7 +27,7 @@ jobs:
             - name: Install dependencies (all packages)
               shell: bash
               run: |
-                  for pkg in mcp-memory mcp-web mcp-search mcp-actions mcp-code create-atlas-agent api; do
+                  for pkg in mcp-memory mcp-web mcp-search mcp-actions mcp-code mcp-files create-atlas-agent api; do
                     echo "--- Installing $pkg ---"
                     (cd "$pkg" && npm install --no-audit --no-fund)
                   done
@@ -35,7 +35,7 @@ jobs:
             - name: Build every package
               shell: bash
               run: |
-                  for pkg in mcp-memory mcp-web mcp-search mcp-actions mcp-code create-atlas-agent api; do
+                  for pkg in mcp-memory mcp-web mcp-search mcp-actions mcp-code mcp-files create-atlas-agent api; do
                     echo "--- Building $pkg ---"
                     (cd "$pkg" && npm run build)
                   done
