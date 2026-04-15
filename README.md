@@ -5,7 +5,7 @@
 Atlas is a suite of Model Context Protocol servers you install with **one command**. Zero API keys. Zero cloud dependencies. Zero bullshit.
 
 ```bash
-npx -y create-atlas-agent
+npx -y create-atlas-mcp
 ```
 
 That single command detects Claude Desktop, Cursor, or Windsurf on your machine and wires up all six Atlas servers in ~10 seconds.
@@ -45,16 +45,16 @@ sessions   content   search      http        outline allowlist
 ## Install everything with one command
 
 ```bash
-npx -y create-atlas-agent
+npx -y create-atlas-mcp
 ```
 
 The CLI auto-detects your MCP client (Claude Desktop on macOS/Windows/Linux, Cursor, Windsurf), backs up your existing config to `.bak`, and adds all six Atlas servers. Flags:
 
 ```bash
-npx -y create-atlas-agent --target claude        # force a specific client
-npx -y create-atlas-agent --only memory,web      # install a subset
-npx -y create-atlas-agent --dry-run              # preview without writing
-npx -y create-atlas-agent --yes                  # skip confirmation
+npx -y create-atlas-mcp --target claude        # force a specific client
+npx -y create-atlas-mcp --only memory,web      # install a subset
+npx -y create-atlas-mcp --dry-run              # preview without writing
+npx -y create-atlas-mcp --yes                  # skip confirmation
 ```
 
 ## Install manually in Claude Desktop
@@ -132,7 +132,7 @@ atlas/
 ├── mcp-actions/        # Actions MCP (atlas-mcp-actions)
 ├── mcp-code/           # Code intelligence MCP (atlas-mcp-code)
 ├── mcp-files/          # Sandboxed filesystem MCP (atlas-mcp-files)
-├── create-atlas-agent/ # One-command CLI installer (npx create-atlas-agent)
+├── create-atlas-mcp/ # One-command CLI installer (npx create-atlas-mcp)
 ├── api/                # Hosted REST API (api.atlas-agent.dev)
 ├── landing/            # Landing page (atlas-agent.dev)
 ├── examples/           # Research agent demo that chains 5 servers end-to-end
@@ -178,7 +178,7 @@ It runs `search_hackernews` → `search_npm` → `extract_article` → `remember
 - [x] atlas-mcp-actions
 - [x] atlas-mcp-code
 - [x] atlas-mcp-files — sandboxed local filesystem (symlink-safe, allowlist-based, read-only mode)
-- [x] create-atlas-agent — one-command installer for Claude / Cursor / Windsurf
+- [x] create-atlas-mcp — one-command installer for Claude / Cursor / Windsurf
 - [x] Atlas REST API
 - [x] Landing page
 - [x] End-to-end 12-test smoke harness

@@ -1,7 +1,7 @@
 {
-    "name": "create-atlas-agent",
+    "name": "create-atlas-mcp",
     "version": "0.1.0",
-    "description": "One command. Turns Claude Desktop, Cursor, or Windsurf into a full Atlas agent with memory, web, search, actions, and code intelligence.",
+    "description": "One command. Turns Claude Desktop, Cursor, or Windsurf into a full Atlas agent with memory, web, search, actions, code intelligence, and sandboxed filesystem access.",
     "keywords": [
         "mcp",
         "claude",
@@ -15,13 +15,13 @@
     "homepage": "https://atlas-agent.dev",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Mohye24k/atlas"
+        "url": "git+https://github.com/Mohye24k/atlas.git"
     },
     "license": "MIT",
     "type": "module",
     "main": "./dist/index.js",
     "bin": {
-        "create-atlas-agent": "./dist/index.js"
+        "create-atlas-mcp": "dist/index.js"
     },
     "files": ["dist", "README.md"],
     "scripts": {

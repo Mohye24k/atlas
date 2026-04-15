@@ -28,7 +28,7 @@ const PACKAGES = [
     'mcp-actions',
     'mcp-code',
     'mcp-files',
-    'create-atlas-agent',
+    'create-atlas-mcp',
 ];
 
 console.log(`Atlas publish-all${dryRun ? ' (dry run)' : ''}\n`);

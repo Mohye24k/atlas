@@ -17,13 +17,13 @@
     "homepage": "https://atlas-agent.dev",
     "repository": {
         "type": "git",
-        "url": "https://github.com/atlas-agent/atlas"
+        "url": "git+https://github.com/Mohye24k/atlas.git"
     },
     "license": "MIT",
     "type": "module",
     "main": "./dist/index.js",
     "bin": {
-        "atlas-mcp-web": "./dist/index.js"
+        "atlas-mcp-web": "dist/index.js"
     },
     "files": ["dist", "README.md"],
     "scripts": {

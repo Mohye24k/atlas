@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * create-atlas-agent — one command installer for Atlas MCP servers.
+ * create-atlas-mcp — one command installer for Atlas MCP servers.
  *
- *   npx create-atlas-agent
+ *   npx create-atlas-mcp
  *
  * Detects Claude Desktop, Cursor, and Windsurf config locations on
  * Windows/macOS/Linux, shows the user which ones were found, and adds
@@ -230,7 +230,7 @@ function color(name: keyof typeof ANSI, text: string): string {
 function printBanner() {
     const lines = [
         '',
-        color('bold', color('cyan', 'create-atlas-agent')) + color('dim', ` v${VERSION}`),
+        color('bold', color('cyan', 'create-atlas-mcp')) + color('dim', ` v${VERSION}`),
         color('dim', 'Infrastructure for AI agents. One command install.'),
         color('dim', 'https://atlas-agent.dev'),
         '',
@@ -241,20 +241,20 @@ function printBanner() {
 function printHelp() {
     printBanner();
     console.log(`Usage:
-  npx create-atlas-agent [flags]
+  npx create-atlas-mcp [flags]
 
 Flags:
-  --target claude|cursor|windsurf|all   Install into a specific MCP client (default: all detected)
-  --only memory,web,search,actions,code Only install the listed servers (default: all 5)
-  --dry-run                              Print the diff without writing any files
-  --yes, -y                              Skip confirmation prompts
-  --help, -h                             Show this help
+  --target claude|cursor|windsurf|all         Install into a specific MCP client (default: all detected)
+  --only memory,web,search,actions,code,files Only install the listed servers (default: all 6)
+  --dry-run                                    Print the diff without writing any files
+  --yes, -y                                    Skip confirmation prompts
+  --help, -h                                   Show this help
 
 Examples:
-  npx create-atlas-agent
-  npx create-atlas-agent --dry-run
-  npx create-atlas-agent --target claude --only memory,web
-  npx create-atlas-agent --yes
+  npx create-atlas-mcp
+  npx create-atlas-mcp --dry-run
+  npx create-atlas-mcp --target claude --only memory,web,files
+  npx create-atlas-mcp --yes
 `);
 }
 

@@ -25,7 +25,7 @@ npm run build              # build every package
 npm run test:smoke          # 10/10 should pass
 npm run publish:npm:dry     # preview the publish
 npm login                   # one time
-npm run publish:npm         # actually publish all 5 MCP packages + create-atlas-agent
+npm run publish:npm         # actually publish all 5 MCP packages + create-atlas-mcp
 ```
 
 You'll be prompted for 2FA on each publish. Just accept them.
@@ -37,11 +37,11 @@ After publish, verify each package is live:
 - https://www.npmjs.com/package/atlas-mcp-search
 - https://www.npmjs.com/package/atlas-mcp-actions
 - https://www.npmjs.com/package/atlas-mcp-code
-- https://www.npmjs.com/package/create-atlas-agent
+- https://www.npmjs.com/package/create-atlas-mcp
 
 Test one in a fresh terminal:
 ```bash
-npx -y create-atlas-agent --dry-run
+npx -y create-atlas-mcp --dry-run
 ```
 
 ## T-2 days: deploy the landing page
@@ -75,7 +75,7 @@ Your PH listing is now public. Ignore it for 8 hours. No one is awake anyway.
 ### 07:30 PT — Morning check
 
 - [ ] Open npm and verify all 6 packages still load
-- [ ] Run `npx create-atlas-agent --dry-run` in a terminal — should still work
+- [ ] Run `npx create-atlas-mcp --dry-run` in a terminal — should still work
 - [ ] Open the landing page, check every link one more time
 - [ ] Have coffee. Don't post anything yet.
 
